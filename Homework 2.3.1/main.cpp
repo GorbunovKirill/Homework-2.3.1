@@ -49,7 +49,7 @@ public:
         this->num2 = num2;
     }
 
-    void calc_num(double num1, double num2, Calculator general) {
+    void calc_num(double num1, double num2) {
         for (;;) {
             do {
                 std::cout << "Введите num1:";
@@ -58,9 +58,9 @@ public:
                     std::cin.clear();
                     std::cin.get();
                 }
-                general.set_num1(this->num1);
-                if (general.set_num1(this->num1)) { std::cout << "Неверный ввод!" << std::endl; }
-            } while (general.set_num1(this->num1));
+                this->set_num1(this->num1);
+                if (this->set_num1(this->num1)) { std::cout << "Неверный ввод!" << std::endl; }
+            } while (this->set_num1(this->num1));
 
             do {
                 std::cout << "Введите num2:";
@@ -69,16 +69,16 @@ public:
                     std::cin.clear();
                     std::cin.get();
                 }
-                general.set_num2(this->num2);
-                if (general.set_num2(this->num2)) { std::cout << "Неверный ввод!" << std::endl; }
-            } while (general.set_num2(this->num2));
+                this->set_num2(this->num2);
+                if (this->set_num2(this->num2)) { std::cout << "Неверный ввод!" << std::endl; }
+            } while (this->set_num2(this->num2));
 
-            std::cout << general.add(this->num1, this->num2) << std::endl;
-            std::cout << general.multiply(this->num1, this->num2) << std::endl;
-            std::cout << general.subtract_1_2(this->num1, this->num2) << std::endl;
-            std::cout << general.subtract_2_1(this->num1, this->num2) << std::endl;
-            std::cout << general.divide_1_2(this->num1, this->num2) << std::endl;
-            std::cout << general.divide_2_1(this->num1, this->num2) << std::endl;
+            std::cout << this->add(this->num1, this->num2) << std::endl;
+            std::cout << this->multiply(this->num1, this->num2) << std::endl;
+            std::cout << this->subtract_1_2(this->num1, this->num2) << std::endl;
+            std::cout << this->subtract_2_1(this->num1, this->num2) << std::endl;
+            std::cout << this->divide_1_2(this->num1, this->num2) << std::endl;
+            std::cout << this->divide_2_1(this->num1, this->num2) << std::endl;
             std::cout << std::endl;
         }
     }
@@ -90,6 +90,6 @@ int main() {
     double num1 = 0.0;
     double num2 = 0.0;
     Calculator first(num1, num2);
-    first.calc_num(num1, num2, first);
+    first.calc_num(num1, num2);
     return 0;
 }
